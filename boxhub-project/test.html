@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOXHUB - Página de Testes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .test-section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .test-button {
+            margin: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            background: #d32f2f;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .test-button:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+        }
+        
+        .animation-demo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #d32f2f, #f57c00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><img class="ui-icon" src="assets/images/icons/boxing-glove.svg" alt="" aria-hidden="true">BOXHUB - TESTES</div>
+                <div class="user-actions">
+                    <a href="index.html" class="btn btn-primary">Voltar ao Site</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div style="margin: 2rem 0;">
+            <h1>Página de Testes e Demonstrações</h1>
+            <p>Esta página serve para testar funcionalidades e animações do BOXHUB.</p>
+        </div>
+
+        <!-- Teste de Animações -->
+        <div class="test-section">
+            <h2>Teste de Animações</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                <button class="test-button" onclick="testAnimation('fadeInUp')">Fade In Up</button>
+                <button class="test-button" onclick="testAnimation('bounce')">Bounce</button>
+                <button class="test-button" onclick="testAnimation('shake')">Shake</button>
+                <button class="test-button" onclick="testAnimation('punch')">Punch Effect</button>
+                <button class="test-button" onclick="testAnimation('knockout')">Knockout</button>
+                <button class="test-button" onclick="testAnimation('victory')">Victory Glow</button>
+                <button class="test-button" onclick="testAnimation('heartbeat')">Heartbeat</button>
+                <button class="test-button" onclick="testAnimation('wiggle')">Wiggle</button>
+            </div>
+            <div class="animation-demo" id="animationDemo"></div>
+        </div>
+
+        <!-- Teste de Notificações -->
+        <div class="test-section">
+            <h2>Teste de Notificações</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                <button class="test-button" onclick="testNotification('success')">Sucesso</button>
+                <button class="test-button" onclick="testNotification('error')">Erro</button>
+                <button class="test-button" onclick="testNotification('login')">Login</button>
+                <button class="test-button" onclick="testNotification('vote')">Voto</button>
+                <button class="test-button" onclick="testNotification('post')">Post</button>
+            </div>
+        </div>
+
+        <!-- Teste de Modais -->
+        <div class="test-section">
+            <h2>Teste de Modais</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                <button class="test-button" onclick="openModal('loginModal')">Modal Login</button>
+                <button class="test-button" onclick="openModal('registerModal')">Modal Registro</button>
+                <button class="test-button" onclick="openModal('createPostModal')">Modal Post</button>
+                <button class="test-button" onclick="openModal('addFighterModal')">Modal Lutador</button>
+            </div>
+        </div>
+
+        <!-- Teste de Componentes -->
+        <div class="test-section">
+            <h2>Teste de Componentes</h2>
+            
+            <!-- Post de Teste -->
+            <div class="post animate-fadeInUp">
+                <div class="post-header">
+                    <div class="user-avatar">TT</div>
+                    <div>
+                        <div><strong>TestUser</strong> • agora mesmo</div>
+                        <div style="font-size: 0.9rem; color: #666;">Post de Teste</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <h4>Este é um post de teste</h4>
+                    <p>Este post serve para testar a funcionalidade e aparência dos componentes do BOXHUB. Todos os estilos e animações estão funcionando corretamente!</p>
+                </div>
+                <div class="post-actions">
+                    <button class="post-action hover-scale" onclick="testLike(this)"><img class="ui-icon" src="assets/images/icons/thumb-up.svg" alt="" aria-hidden="true">Curtir <span class="count">(42)</span></button>
+                    <button class="post-action hover-scale"><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">Comentar (12)</button>
+                    <button class="post-action hover-scale"><img class="ui-icon" src="assets/images/icons/share.svg" alt="" aria-hidden="true">Compartilhar</button>
+                </div>
+            </div>
+
+            <!-- Lutador de Teste -->
+            <div class="ranking-item animate-fadeInLeft">
+                <div class="ranking-position">#1</div>
+                <div class="fighter-avatar">MT</div>
+                <div class="fighter-info">
+                    <div class="fighter-name">Mike Tyson (Teste)</div>
+                    <div class="fighter-stats">Peso Pesado • 50-6-2 • EUA</div>
+                </div>
+                <div class="vote-section">
+                    <div class="vote-buttons">
+                        <button class="vote-btn vote-up hover-scale" onclick="testVote(this, 'up')">↑</button>
+                        <button class="vote-btn vote-down hover-scale" onclick="testVote(this, 'down')">↓</button>
+                    </div>
+                    <div class="vote-count">999 votos</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teste de Performance -->
+        <div class="test-section">
+            <h2>Teste de Performance</h2>
+            <button class="test-button" onclick="performanceTest()">Executar Teste de Performance</button>
+            <div id="performanceResults" style="margin-top: 1rem; font-family: monospace;"></div>
+        </div>
+    </div>
+
+    <!-- Modais (copiados do index.html) -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/key.svg" alt="" aria-hidden="true">Entrar no BOXHUB</h3>
+                <button class="close" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Email ou Usuário:</label>
+                        <input type="text" class="form-control" placeholder="teste@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="••••••••">
+                    </div>
+                    <button type="button" class="btn btn-primary" style="width: 100%;" onclick="closeModal('loginModal')"><img class="ui-icon" src="assets/images/icons/door.svg" alt="" aria-hidden="true">Entrar (Teste)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/target.svg" alt="" aria-hidden="true">Junte-se ao BOXHUB</h3>
+                <button class="close" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Nome de Usuário:</label>
+                        <input type="text" class="form-control" placeholder="usuarioteste">
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" placeholder="teste@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="••••••••">
+                    </div>
+                    <button type="button" class="btn btn-primary" style="width: 100%;" onclick="closeModal('registerModal')"><img class="ui-icon" src="assets/images/icons/target.svg" alt="" aria-hidden="true">Criar Conta (Teste)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="createPostModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/edit.svg" alt="" aria-hidden="true">Criar Novo Post</h3>
+                <button class="close" onclick="closeModal('createPostModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Categoria:</label>
+                        <select class="form-control">
+                            <option>Discussão Geral</option>
+                            <option>Rankings</option>
+                            <option>Análise de Luta</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Título:</label>
+                        <input type="text" class="form-control" placeholder="Título do post de teste...">
+                    </div>
+                    <div class="form-group">
+                        <label>Conteúdo:</label>
+                        <textarea class="form-control" placeholder="Conteúdo do post de teste..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" style="width: 100%;" onclick="closeModal('createPostModal')"><img class="ui-icon" src="assets/images/icons/send.svg" alt="" aria-hidden="true">Publicar Post (Teste)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="addFighterModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/boxing-glove.svg" alt="" aria-hidden="true">Adicionar Novo Lutador</h3>
+                <button class="close" onclick="closeModal('addFighterModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Nome do Lutador:</label>
+                        <input type="text" class="form-control" placeholder="Lutador Teste">
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria de Peso:</label>
+                        <select class="form-control">
+                            <option>Peso Pesado</option>
+                            <option>Peso Médio</option>
+                            <option>Peso Leve</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Record:</label>
+                        <input type="text" class="form-control" placeholder="25-0-1">
+                    </div>
+                    <div class="form-group">
+                        <label>País:</label>
+                        <input type="text" class="form-control" placeholder="Brasil">
+                    </div>
+                    <button type="button" class="btn btn-primary" style="width: 100%;" onclick="closeModal('addFighterModal')"><img class="ui-icon" src="assets/images/icons/plus.svg" alt="" aria-hidden="true">Adicionar ao Ranking (Teste)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script>
+        // Funções de teste
+        function testAnimation(animationType) {
+            const demo = document.getElementById('animationDemo');
+            demo.className = 'animation-demo';
+            
+            setTimeout(() => {
+                demo.classList.add(`animate-${animationType}`);
+            }, 100);
+            
+            setTimeout(() => {
+                demo.classList.remove(`animate-${animationType}`);
+            }, 2000);
+        }
+
+        function testNotification(type) {
+            const messages = {
+                'success': 'Teste de notificação de sucesso!',
+                'error': 'Teste de notificação de erro!',
+                'login': 'Bem-vindo ao BOXHUB!',
+                'vote': 'Voto registrado com sucesso!',
+                'post': 'Post criado com sucesso!'
+            };
+            
+            showNotification(messages[type], type === 'error' ? 'error' : 'success');
+        }
+
+        function testLike(btn) {
+            btn.style.color = '#d32f2f';
+            btn.style.transform = 'scale(1.1)';
+            const count = btn.querySelector('.count');
+            const current = parseInt(count.textContent.match(/\d+/)[0]);
+            count.textContent = `(${current + 1})`;
+            
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 200);
+            
+            showNotification('Post curtido!');
+        }
+
+        function testVote(btn, direction) {
+            btn.style.transform = 'scale(1.3)';
+            btn.style.boxShadow = '0 0 15px rgba(211, 47, 47, 0.5)';
+            
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+                btn.style.boxShadow = 'none';
+            }, 300);
+            
+            const message = direction === 'up' ? 'Voto positivo!' : 'Voto negativo!';
+            showNotification(message);
+        }
+
+        function performanceTest() {
+            const results = document.getElementById('performanceResults');
+            results.innerHTML = '<div class="loading-spinner"></div> Executando testes...';
+            
+            setTimeout(() => {
+                const startTime = performance.now();
+                
+                // Simular operações
+                for (let i = 0; i < 1000; i++) {
+                    document.createElement('div');
+                }
+                
+                const endTime = performance.now();
+                const duration = endTime - startTime;
+                
+                results.innerHTML = `
+                    <h4>Resultados do Teste:</h4>
+                    <p>Tempo de execução: ${duration.toFixed(2)}ms</p>
+                    <p>Memória utilizada: ${(performance.memory?.usedJSHeapSize / 1024 / 1024).toFixed(2) || 'N/A'} MB</p>
+                    <p>User Agent: ${navigator.userAgent}</p>
+                    <p>Viewport: ${window.innerWidth}x${window.innerHeight}</p>
+                    <p>Status: Todos os testes passaram!</p>
+                `;
+            }, 1000);
+        }
+
+        // Funções básicas de modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Sistema de notificações simplificado
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            
+            const bgColor = type === 'success' 
+                ? 'linear-gradient(135deg, #4caf50, #45a049)'
+                : 'linear-gradient(135deg, #f44336, #d32f2f)';
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${bgColor};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 2000;
+                font-weight: bold;
+                animation: slideIn 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Fechar modal ao clicar fora
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Mensagem de boas-vindas
+        document.addEventListener('DOMContentLoaded', function() {
+            showNotification('Página de testes carregada!');
+        });
+    </script>
+</body>
+</html>

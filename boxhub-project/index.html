@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOXHUB - Comunidade de Boxe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><img class="ui-icon" src="assets/images/icons/boxing-glove.svg" alt="" aria-hidden="true">BOXHUB</div>
+                <div class="user-actions">
+                    <a href="#" class="btn btn-secondary" onclick="openModal('loginModal')">Entrar</a>
+                    <a href="#" class="btn btn-primary" onclick="openModal('registerModal')">Registrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-tabs">
+                <li><a href="index.html" class="active"><img class="ui-icon" src="assets/images/icons/home.svg" alt="" aria-hidden="true">Feed</a></li>
+                <li><a href="discussions.html"><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">Discussões</a></li>
+                <li><a href="rankings.html"><img class="ui-icon" src="assets/images/icons/trophy.svg" alt="" aria-hidden="true">Rankings</a></li>
+                <li><a href="fighters.html"><img class="ui-icon" src="assets/images/icons/fist.svg" alt="" aria-hidden="true">Lutadores</a></li>
+                <li><a href="events.html"><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true">Eventos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <main class="feed-section">
+                <!-- Feed Tab -->
+                <div id="feed-tab" class="tab-content">
+                    <div class="create-post" onclick="checkLoginAndCreatePost()">
+                        <h3>O que você está pensando sobre boxe?</h3>
+                        <p>Faça login para compartilhar sua opinião, iniciar um debate ou fazer uma pergunta para a comunidade</p>
+                    </div>
+
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="user-avatar">MJ</div>
+                            <div>
+                                <div><strong>Mike_Jones</strong> • há 2 horas</div>
+                                <div style="font-size: 0.9rem; color: #666;">Discussão Geral</div>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h4>Análise: Canelo vs Berlanga - O que esperar?</h4>
+                            <p>Pessoal, a luta está chegando e quero saber a opinião de vocês. O Canelo vem numa boa fase, mas o Berlanga tem mostrado poder de nocaute. Acham que pode ser uma surpresa ou o Canelo domina fácil?</p>
+                        </div>
+                        <div class="post-actions">
+                            <button class="post-action" onclick="likePost(this)"><img class="ui-icon" src="assets/images/icons/thumb-up.svg" alt="" aria-hidden="true">Curtir <span class="count">(23)</span></button>
+                            <button class="post-action" onclick="commentPost(this)"><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">Comentar (8)</button>
+                            <button class="post-action" onclick="sharePost(this)"><img class="ui-icon" src="assets/images/icons/share.svg" alt="" aria-hidden="true">Compartilhar</button>
+                        </div>
+                    </div>
+
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="user-avatar">AS</div>
+                            <div>
+                                <div><strong>Ana_Silva</strong> • há 4 horas</div>
+                                <div style="font-size: 0.9rem; color: #666;">Rankings</div>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h4>Fury merece estar no top 3 P4P?</h4>
+                            <p>Depois da performance contra Whyte, muita gente questiona se Tyson Fury merece estar entre os 3 melhores libra por libra. Eu acho que sim, mas quero ouvir vocês. Votem no ranking!</p>
+                        </div>
+                        <div class="post-actions">
+                            <button class="post-action" onclick="likePost(this)"><img class="ui-icon" src="assets/images/icons/thumb-up.svg" alt="" aria-hidden="true">Curtir <span class="count">(31)</span></button>
+                            <button class="post-action" onclick="commentPost(this)"><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">Comentar (15)</button>
+                            <button class="post-action" onclick="sharePost(this)"><img class="ui-icon" src="assets/images/icons/share.svg" alt="" aria-hidden="true">Compartilhar</button>
+                        </div>
+                    </div>
+
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="user-avatar">RC</div>
+                            <div>
+                                <div><strong>RingChampion</strong> • há 6 horas</div>
+                                <div style="font-size: 0.9rem; color: #666;">Análise de Luta</div>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <h4>Breakdown técnico: O jab do Crawford</h4>
+                            <p>Galera, fiz uma análise do jab do Terence Crawford e é impressionante a precisão. A forma como ele usa pra medir distância e preparar os combos é de outro nível. Alguém mais reparou isso?</p>
+                        </div>
+                        <div class="post-actions">
+                            <button class="post-action" onclick="likePost(this)"><img class="ui-icon" src="assets/images/icons/thumb-up.svg" alt="" aria-hidden="true">Curtir <span class="count">(18)</span></button>
+                            <button class="post-action" onclick="commentPost(this)"><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">Comentar (6)</button>
+                            <button class="post-action" onclick="sharePost(this)"><img class="ui-icon" src="assets/images/icons/share.svg" alt="" aria-hidden="true">Compartilhar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discussions Tab -->
+                <div id="discussions-tab" class="tab-content" style="display: none;">
+                    <h2><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">Discussões em Destaque</h2>
+                    <p style="margin-bottom: 2rem; color: #666;">Participe dos debates mais quentes da comunidade!</p>
+                    
+                    <div class="discussion-topic">
+                        <div class="topic-title">Quem é o maior peso pesado de todos os tempos?</div>
+                        <p>Debate eterno no boxe! Muhammad Ali, Mike Tyson, ou alguém mais recente como Fury? Vamos decidir isso de uma vez por todas...</p>
+                        <div class="topic-meta">
+                            <span><img class="ui-icon" src="assets/images/icons/users.svg" alt="" aria-hidden="true">89 participantes</span>
+                            <span><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">234 mensagens</span>
+                            <span>Ativo há 5 min</span>
+                        </div>
+                    </div>
+
+                    <div class="discussion-topic">
+                        <div class="topic-title">Boxe feminino: Katie Taylor vs Amanda Serrano 2</div>
+                        <p>A revanche que todo mundo quer ver! Quem leva a melhor dessa vez? A irlandesa vai manter o título ou a porto-riquenha consegue a vingança?</p>
+                        <div class="topic-meta">
+                            <span><img class="ui-icon" src="assets/images/icons/users.svg" alt="" aria-hidden="true">45 participantes</span>
+                            <span><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">128 mensagens</span>
+                            <span>Ativo há 12 min</span>
+                        </div>
+                    </div>
+
+                    <div class="discussion-topic">
+                        <div class="topic-title">Técnica: Melhor defesa no boxe moderno</div>
+                        <p>Mayweather com o shoulder roll, Canelo com head movement, ou Crawford com footwork? Vamos analisar as diferentes escolas defensivas...</p>
+                        <div class="topic-meta">
+                            <span><img class="ui-icon" src="assets/images/icons/users.svg" alt="" aria-hidden="true">67 participantes</span>
+                            <span><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">156 mensagens</span>
+                            <span>Ativo há 8 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rankings Tab -->
+                <div id="rankings-tab" class="tab-content" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h2 style="margin: 0;"><img class="ui-icon" src="assets/images/icons/trophy.svg" alt="" aria-hidden="true">Rankings da Comunidade</h2>
+                        <button class="btn btn-primary" onclick="checkLoginAndAddFighter()"><img class="ui-icon" src="assets/images/icons/plus.svg" alt="" aria-hidden="true">Adicionar Lutador</button>
+                    </div>
+                    <p style="margin-bottom: 2rem; color: #666;">Vote nos seus lutadores favoritos e ajude a criar o ranking oficial da nossa comunidade!</p>
+                    
+                    <div class="ranking-item">
+                        <div class="ranking-position">#1</div>
+                        <div class="fighter-avatar">CA</div>
+                        <div class="fighter-info">
+                            <div class="fighter-name">Canelo Álvarez</div>
+                            <div class="fighter-stats">Super Médio • 59-2-2 • México</div>
+                        </div>
+                        <div class="vote-section">
+                            <div class="vote-buttons">
+                                <button class="vote-btn vote-up" onclick="vote('canelo_alvarez', 'up', this)">↑</button>
+                                <button class="vote-btn vote-down" onclick="vote('canelo_alvarez', 'down', this)">↓</button>
+                            </div>
+                            <div class="vote-count">3,847 votos</div>
+                            <button class="remove-vote-btn" onclick="removeVote('canelo_alvarez', this)" style="display: none;">Remover Voto</button>
+                        </div>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-position">#2</div>
+                        <div class="fighter-avatar">TF</div>
+                        <div class="fighter-info">
+                            <div class="fighter-name">Tyson Fury</div>
+                            <div class="fighter-stats">Peso Pesado • 33-0-1 • Reino Unido</div>
+                        </div>
+                        <div class="vote-section">
+                            <div class="vote-buttons">
+                                <button class="vote-btn vote-up" onclick="vote('tyson_fury', 'up', this)">↑</button>
+                                <button class="vote-btn vote-down" onclick="vote('tyson_fury', 'down', this)">↓</button>
+                            </div>
+                            <div class="vote-count">3,289 votos</div>
+                            <button class="remove-vote-btn" onclick="removeVote('tyson_fury', this)" style="display: none;">Remover Voto</button>
+                        </div>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-position">#3</div>
+                        <div class="fighter-avatar">TC</div>
+                        <div class="fighter-info">
+                            <div class="fighter-name">Terence Crawford</div>
+                            <div class="fighter-stats">Meio Médio • 40-0 • EUA</div>
+                        </div>
+                        <div class="vote-section">
+                            <div class="vote-buttons">
+                                <button class="vote-btn vote-up" onclick="vote('terence_crawford', 'up', this)">↑</button>
+                                <button class="vote-btn vote-down" onclick="vote('terence_crawford', 'down', this)">↓</button>
+                            </div>
+                            <div class="vote-count">956 votos</div>
+                            <button class="remove-vote-btn" onclick="removeVote('terence_crawford', this)" style="display: none;">Remover Voto</button>
+                        </div>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-position">#4</div>
+                        <div class="fighter-avatar">GR</div>
+                        <div class="fighter-info">
+                            <div class="fighter-name">Gervonta Davis</div>
+                            <div class="fighter-stats">Leve • 29-0 • EUA</div>
+                        </div>
+                        <div class="vote-section">
+                            <div class="vote-buttons">
+                                <button class="vote-btn vote-up" onclick="vote('gervonta_davis', 'up', this)">↑</button>
+                                <button class="vote-btn vote-down" onclick="vote('gervonta_davis', 'down', this)">↓</button>
+                            </div>
+                            <div class="vote-count">823 votos</div>
+                            <button class="remove-vote-btn" onclick="removeVote('gervonta_davis', this)" style="display: none;">Remover Voto</button>
+                        </div>
+                    </div>
+
+                    <div class="ranking-item">
+                        <div class="ranking-position">#5</div>
+                        <div class="fighter-avatar">KT</div>
+                        <div class="fighter-info">
+                            <div class="fighter-name">Katie Taylor</div>
+                            <div class="fighter-stats">Leve Feminino • 22-0 • Irlanda</div>
+                        </div>
+                        <div class="vote-section">
+                            <div class="vote-buttons">
+                                <button class="vote-btn vote-up" onclick="vote('katie_taylor', 'up', this)">↑</button>
+                                <button class="vote-btn vote-down" onclick="vote('katie_taylor', 'down', this)">↓</button>
+                            </div>
+                            <div class="vote-count">701 votos</div>
+                            <button class="remove-vote-btn" onclick="removeVote('katie_taylor', this)" style="display: none;">Remover Voto</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3><img class="ui-icon" src="assets/images/icons/users.svg" alt="" aria-hidden="true">Usuários Online (245)</h3>
+                    <div class="online-user">
+                        <div class="status-indicator"></div>
+                        <div><strong>BoxingFan2023</strong></div>
+                    </div>
+                    <div class="online-user">
+                        <div class="status-indicator"></div>
+                        <div><strong>ChampionMike</strong></div>
+                    </div>
+                    <div class="online-user">
+                        <div class="status-indicator"></div>
+                        <div><strong>RingMaster</strong></div>
+                    </div>
+                    <div class="online-user">
+                        <div class="status-indicator"></div>
+                        <div><strong>KnockoutKing</strong></div>
+                    </div>
+                    <div class="online-user">
+                        <div class="status-indicator"></div>
+                        <div><strong>PunchPower</strong></div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3><img class="ui-icon" src="assets/images/icons/flame.svg" alt="" aria-hidden="true">Tópicos em Alta</h3>
+                    <div style="margin-bottom: 0.8rem;">
+                        <a href="#" style="color: #d32f2f; text-decoration: none; font-weight: 500;">
+                            Fury vs Wilder 4 confirmado?
+                        </a>
+                        <div style="font-size: 0.8rem; color: #999;">128 comentários</div>
+                    </div>
+                    <div style="margin-bottom: 0.8rem;">
+                        <a href="#" style="color: #d32f2f; text-decoration: none; font-weight: 500;">
+                            Melhor jab da história do boxe
+                        </a>
+                        <div style="font-size: 0.8rem; color: #999;">89 comentários</div>
+                    </div>
+                    <div style="margin-bottom: 0.8rem;">
+                        <a href="#" style="color: #d32f2f; text-decoration: none; font-weight: 500;">
+                            Boxe feminino crescendo
+                        </a>
+                        <div style="font-size: 0.8rem; color: #999;">67 comentários</div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3><img class="ui-icon" src="assets/images/icons/chart.svg" alt="" aria-hidden="true">Estatísticas da Comunidade</h3>
+                    <div style="margin-bottom: 0.8rem;"><img class="ui-icon" src="assets/images/icons/users.svg" alt="" aria-hidden="true"><strong>12,847</strong> membros total</div>
+                    <div style="margin-bottom: 0.8rem;"><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true"><strong>3,254</strong> discussões ativas</div>
+                    <div style="margin-bottom: 0.8rem;"><img class="ui-icon" src="assets/images/icons/boxing-glove.svg" alt="" aria-hidden="true"><strong>287</strong> lutadores no ranking</div>
+                    <div style="margin-bottom: 0.8rem;"><strong>45,123</strong> votos dados hoje</div>
+                </div>
+
+                <div class="widget">
+                    <h3><img class="ui-icon" src="assets/images/icons/trophy.svg" alt="" aria-hidden="true">Top Contribuidores</h3>
+                    <div style="margin-bottom: 0.5rem;"><strong>1º</strong> BoxingExpert - 2,341 pts</div>
+                    <div style="margin-bottom: 0.5rem;"><strong>2º</strong> RingAnalyst - 1,987 pts</div>
+                    <div style="margin-bottom: 0.5rem;"><strong>3º</strong> FightFan92 - 1,654 pts</div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Modal para criar post -->
+    <div id="createPostModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/edit.svg" alt="" aria-hidden="true">Criar Novo Post</h3>
+                <button class="close" onclick="closeModal('createPostModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="createPost(event)">
+                    <div class="form-group">
+                        <label>Categoria:</label>
+                        <select class="form-control" id="postCategory">
+                            <option value="geral">Discussão Geral</option>
+                            <option value="rankings">Rankings</option>
+                            <option value="analise">Análise de Luta</option>
+                            <option value="noticias">Notícias</option>
+                            <option value="tecnica">Técnica</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Título:</label>
+                        <input type="text" class="form-control" id="postTitle" placeholder="Digite um título chamativo para seu post..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Conteúdo:</label>
+                        <textarea class="form-control" id="postContent" placeholder="Compartilhe sua opinião, análise ou pergunta sobre boxe. Seja respeitoso e construtivo!" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/send.svg" alt="" aria-hidden="true">Publicar Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/key.svg" alt="" aria-hidden="true">Entrar no BOXHUB</h3>
+                <button class="close" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="login(event)">
+                    <div class="form-group">
+                        <label>Email ou Usuário:</label>
+                        <input type="text" class="form-control" placeholder="seu@email.com ou usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;"><img class="ui-icon" src="assets/images/icons/door.svg" alt="" aria-hidden="true">Entrar</button>
+                    <div style="text-align: center;">
+                        <a href="#" style="color: #d32f2f;">Esqueceu a senha?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/target.svg" alt="" aria-hidden="true">Junte-se ao BOXHUB</h3>
+                <button class="close" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="register(event)">
+                    <div class="form-group">
+                        <label>Nome de Usuário:</label>
+                        <input type="text" class="form-control" placeholder="escolha um nome único" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="mínimo 6 caracteres" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/target.svg" alt="" aria-hidden="true">Criar Conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar Lutador -->
+    <div id="addFighterModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/boxing-glove.svg" alt="" aria-hidden="true">Adicionar Novo Lutador</h3>
+                <button class="close" onclick="closeModal('addFighterModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="addFighter(event)">
+                    <div class="form-group">
+                        <label>Nome do Lutador:</label>
+                        <input type="text" class="form-control" id="fighterName" placeholder="Ex: Mike Tyson" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria de Peso:</label>
+                        <select class="form-control" id="fighterCategory" required>
+                            <option value="">Selecione a categoria</option>
+                            <option value="Peso Mosca">Peso Mosca</option>
+                            <option value="Peso Galo">Peso Galo</option>
+                            <option value="Peso Pena">Peso Pena</option>
+                            <option value="Peso Leve">Peso Leve</option>
+                            <option value="Peso Meio-Médio">Peso Meio-Médio</option>
+                            <option value="Peso Médio">Peso Médio</option>
+                            <option value="Peso Super Médio">Peso Super Médio</option>
+                            <option value="Peso Meio-Pesado">Peso Meio-Pesado</option>
+                            <option value="Peso Pesado">Peso Pesado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Record (Vitórias-Derrotas-Empates):</label>
+                        <input type="text" class="form-control" id="fighterRecord" placeholder="Ex: 50-6-2" required>
+                    </div>
+                    <div class="form-group">
+                        <label>País:</label>
+                        <input type="text" class="form-control" id="fighterCountry" placeholder="Ex: Brasil" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/plus.svg" alt="" aria-hidden="true">Adicionar ao Ranking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('feed');
+            updateUserInterface();
+        });
+    </script>
+</body>
+</html>

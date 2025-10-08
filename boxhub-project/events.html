@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOXHUB - Eventos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><img class="ui-icon" src="assets/images/icons/boxing-glove.svg" alt="" aria-hidden="true">BOXHUB</div>
+                <div class="user-actions">
+                    <a href="#" class="btn btn-secondary" onclick="openModal('loginModal')">Entrar</a>
+                    <a href="#" class="btn btn-primary" onclick="openModal('registerModal')">Registrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-tabs">
+                <li><a href="index.html"><img class="ui-icon" src="assets/images/icons/home.svg" alt="" aria-hidden="true">Feed</a></li>
+                <li><a href="discussions.html"><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">Discussões</a></li>
+                <li><a href="rankings.html"><img class="ui-icon" src="assets/images/icons/trophy.svg" alt="" aria-hidden="true">Rankings</a></li>
+                <li><a href="fighters.html"><img class="ui-icon" src="assets/images/icons/fist.svg" alt="" aria-hidden="true">Lutadores</a></li>
+                <li><a href="events.html" class="active"><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true">Eventos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <main class="feed-section">
+                <div id="events-tab" class="tab-content" style="display: block;">
+                    <div class="event-controls">
+                        <div>
+                            <h2><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true">Eventos</h2>
+                            <p style="margin-bottom: 1rem; color: #666;">Próximas lutas e eventos do boxe.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="checkLoginAndAddEvent()"><img class="ui-icon" src="assets/images/icons/plus.svg" alt="" aria-hidden="true">Adicionar Evento</button>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-header">
+                            <div class="event-title">
+                                <h3>Canelo vs Berlanga</h3>
+                                <div class="event-meta">Super Médio • Título Mundial WBC, WBA, IBF, WBO</div>
+                            </div>
+                            <span class="event-status status-confirmed">Confirmado</span>
+                        </div>
+                        
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true"></span>
+                                <span>08 de Novembro, 2025</span>
+                            </div>
+                            <div class="detail-item">
+                                <span><img class="ui-icon" src="assets/images/icons/stadium.svg" alt="" aria-hidden="true"></span>
+                                <span>T-Mobile Arena</span>
+                            </div>
+                            <div class="detail-item">
+                                <span><img class="ui-icon" src="assets/images/icons/map-pin.svg" alt="" aria-hidden="true"></span>
+                                <span>Las Vegas, Nevada</span>
+                            </div>
+                            <div class="detail-item">
+                                <span><img class="ui-icon" src="assets/images/icons/tv.svg" alt="" aria-hidden="true"></span>
+                                <span>DAZN / PPV</span>
+                            </div>
+                        </div>
+
+                        <div class="undercard">
+                            <h4>Card Preliminar:</h4>
+                            <ul class="undercard-list">
+                                <li class="undercard-item">• David Benavidez vs Caleb Plant (Super Médio)</li>
+                                <li class="undercard-item">• Jesse Rodriguez vs Sunny Edwards (Peso Mosca)</li>
+                                <li class="undercard-item">• Mario Barrios vs Keith Thurman (Meio Médio)</li>
+                            </ul>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="notify-btn" onclick="toggleEventNotification(this)" title="Ativar notificações"><img class="ui-icon" src="assets/images/icons/bell.svg" alt="" aria-hidden="true"></button>
+                            <button class="btn-outline"><img class="ui-icon" src="assets/images/icons/ticket.svg" alt="" aria-hidden="true">Ingressos</button>
+                            <button class="btn-outline"><img class="ui-icon" src="assets/images/icons/tv.svg" alt="" aria-hidden="true">Onde Assistir</button>
+                            <button class="btn-outline"><img class="ui-icon" src="assets/images/icons/edit.svg" alt="" aria-hidden="true">Editar Evento</button>
+                        </div>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-header">
+                            <div class="event-title">
+                                <h3>Fury vs Wilder 4</h3>
+                                <div class="event-meta">Peso Pesado • Título Mundial WBC</div>
+                            </div>
+                            <span class="event-status status-pending">Aguardando Confirmação</span>
+                        </div>
+                        
+                        <div class="event-details">
+                            <div class="detail-item">
+                                <span><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true"></span>
+                                <span>Data a confirmar</span>
+                            </div>
+                            <div class="detail-item">
+                                <span><img class="ui-icon" src="assets/images/icons/stadium.svg" alt="" aria-hidden="true"></span>
+                                <span>Local a confirmar</span>
+                            </div>
+                            <div class="detail-item">
+                                <span><img class="ui-icon" src="assets/images/icons/map-pin.svg" alt="" aria-hidden="true"></span>
+                                <span>A confirmar</span>
+                            </div>
+                            <div class="detail-item">
+                                <span><img class="ui-icon" src="assets/images/icons/tv.svg" alt="" aria-hidden="true"></span>
+                                <span>A confirmar</span>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="notify-btn" onclick="toggleEventNotification(this)" title="Ativar notificações"><img class="ui-icon" src="assets/images/icons/bell.svg" alt="" aria-hidden="true"></button>
+                            <button class="btn-outline"><img class="ui-icon" src="assets/images/icons/edit.svg" alt="" aria-hidden="true">Editar Evento</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true">Próximos Eventos</h3>
+                    <div style="margin-bottom: 0.8rem;">
+                        <div><strong>Outubro 2025</strong></div>
+                        <div>• Crawford vs Spence 2 (12/10)</div>
+                        <div>• Taylor vs Serrano 2 (19/10)</div>
+                        <div>• Inoue vs Nery (26/10)</div>
+                    </div>
+                    <div style="margin-bottom: 0.8rem;">
+                        <div><strong>Novembro 2025</strong></div>
+                        <div>• Canelo vs Berlanga (08/11)</div>
+                        <div>• Joshua vs Wilder (15/11)</div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3><img class="ui-icon" src="assets/images/icons/chart.svg" alt="" aria-hidden="true">Estatísticas</h3>
+                    <div style="margin-bottom: 0.8rem;"><strong>15</strong> eventos confirmados</div>
+                    <div style="margin-bottom: 0.8rem;"><strong>45</strong> lutas agendadas</div>
+                    <div style="margin-bottom: 0.8rem;"><img class="ui-icon" src="assets/images/icons/ticket.svg" alt="" aria-hidden="true"><strong>12,345</strong> ingressos vendidos</div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div id="createPostModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/edit.svg" alt="" aria-hidden="true">Criar Novo Post</h3>
+                <button class="close" onclick="closeModal('createPostModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="createPost(event)">
+                    <div class="form-group">
+                        <label>Categoria:</label>
+                        <select class="form-control" id="postCategory">
+                            <option value="geral">Discussão Geral</option>
+                            <option value="rankings">Rankings</option>
+                            <option value="analise">Análise de Luta</option>
+                            <option value="noticias">Notícias</option>
+                            <option value="tecnica">Técnica</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Título:</label>
+                        <input type="text" class="form-control" id="postTitle" placeholder="Digite um título chamativo para seu post..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Conteúdo:</label>
+                        <textarea class="form-control" id="postContent" placeholder="Compartilhe sua opinião, análise ou pergunta sobre boxe. Seja respeitoso e construtivo!" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/send.svg" alt="" aria-hidden="true">Publicar Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/key.svg" alt="" aria-hidden="true">Entrar no BOXHUB</h3>
+                <button class="close" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="login(event)">
+                    <div class="form-group">
+                        <label>Email ou Usuário:</label>
+                        <input type="text" class="form-control" placeholder="seu@email.com ou usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;"><img class="ui-icon" src="assets/images/icons/door.svg" alt="" aria-hidden="true">Entrar</button>
+                    <div style="text-align: center;">
+                        <a href="#" style="color: #d32f2f;">Esqueceu a senha?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/target.svg" alt="" aria-hidden="true">Junte-se ao BOXHUB</h3>
+                <button class="close" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="register(event)">
+                    <div class="form-group">
+                        <label>Nome de Usuário:</label>
+                        <input type="text" class="form-control" placeholder="escolha um nome único" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="mínimo 6 caracteres" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/target.svg" alt="" aria-hidden="true">Criar Conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="addEventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true">Adicionar Novo Evento</h3>
+                <button class="close" onclick="closeModal('addEventModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="addEvent(event)">
+                    <div class="event-form-grid">
+                        <div class="form-group">
+                            <label>Título do Evento:</label>
+                            <input type="text" class="form-control" id="eventTitle" placeholder="Ex: Canelo vs Berlanga" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Categoria:</label>
+                            <select class="form-control" id="eventCategory" required>
+                                <option value="">Selecione a categoria</option>
+                                <option value="Peso Mosca">Peso Mosca</option>
+                                <option value="Peso Galo">Peso Galo</option>
+                                <option value="Peso Pena">Peso Pena</option>
+                                <option value="Peso Leve">Peso Leve</option>
+                                <option value="Peso Meio-Médio">Peso Meio-Médio</option>
+                                <option value="Peso Médio">Peso Médio</option>
+                                <option value="Peso Super Médio">Peso Super Médio</option>
+                                <option value="Peso Meio-Pesado">Peso Meio-Pesado</option>
+                                <option value="Peso Pesado">Peso Pesado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="event-form-grid">
+                        <div class="form-group">
+                            <label>Data:</label>
+                            <input type="date" class="form-control" id="eventDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Local:</label>
+                            <input type="text" class="form-control" id="eventVenue" placeholder="Ex: T-Mobile Arena" required>
+                        </div>
+                    </div>
+
+                    <div class="event-form-grid">
+                        <div class="form-group">
+                            <label>Cidade:</label>
+                            <input type="text" class="form-control" id="eventCity" placeholder="Ex: Las Vegas" required>
+                        </div>
+                        <div class="form-group">
+                            <label>País:</label>
+                            <input type="text" class="form-control" id="eventCountry" placeholder="Ex: Estados Unidos" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Transmissão:</label>
+                        <input type="text" class="form-control" id="eventBroadcast" placeholder="Ex: DAZN / PPV">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Card Preliminar:</label>
+                        <textarea class="form-control" id="eventUndercard" placeholder="Digite uma luta por linha..." rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/plus.svg" alt="" aria-hidden="true">Adicionar Evento</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para alternar notificações do evento
+        function toggleEventNotification(btn) {
+            if (!isUserLoggedIn) {
+                showNotification('Faça login para ativar notificações!', 'error');
+                openModal('loginModal');
+                return;
+            }
+            
+            btn.classList.toggle('active');
+            const isActive = btn.classList.contains('active');
+            showNotification(isActive ? 'Notificações ativadas!' : 'Notificações desativadas!');
+        }
+
+        // Função para verificar login e abrir modal de evento
+        function checkLoginAndAddEvent() {
+            if (!isUserLoggedIn) {
+                showNotification('Faça login para adicionar eventos!', 'error');
+                openModal('loginModal');
+                return;
+            }
+            openModal('addEventModal');
+        }
+
+        // Função para adicionar novo evento
+        function addEvent(event) {
+            event.preventDefault();
+            
+            // Obter dados do formulário
+            const title = document.getElementById('eventTitle').value;
+            const category = document.getElementById('eventCategory').value;
+            const date = document.getElementById('eventDate').value;
+            const venue = document.getElementById('eventVenue').value;
+            const city = document.getElementById('eventCity').value;
+            const country = document.getElementById('eventCountry').value;
+            const broadcast = document.getElementById('eventBroadcast').value;
+            const undercard = document.getElementById('eventUndercard').value;
+
+            // Criar HTML do novo evento
+            const newEventHTML = `
+                <div class="event-item">
+                    <div class="event-header">
+                        <div class="event-title">
+                            <h3>${title}</h3>
+                            <div class="event-meta">${category}</div>
+                        </div>
+                        <span class="event-status status-confirmed">Confirmado</span>
+                    </div>
+                    
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true"></span>
+                            <span>${new Date(date).toLocaleDateString('pt-BR')}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span><img class="ui-icon" src="assets/images/icons/stadium.svg" alt="" aria-hidden="true"></span>
+                            <span>${venue}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span><img class="ui-icon" src="assets/images/icons/map-pin.svg" alt="" aria-hidden="true"></span>
+                            <span>${city}, ${country}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span><img class="ui-icon" src="assets/images/icons/tv.svg" alt="" aria-hidden="true"></span>
+                            <span>${broadcast || 'A confirmar'}</span>
+                        </div>
+                    </div>
+
+                    ${undercard ? `
+                        <div class="undercard">
+                            <h4>Card Preliminar:</h4>
+                            <ul class="undercard-list">
+                                ${undercard.split('\n').map(fight => `
+                                    <li class="undercard-item">• ${fight}</li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+
+                    <div class="action-buttons">
+                        <button class="notify-btn" onclick="toggleEventNotification(this)" title="Ativar notificações">
+                            <img class="ui-icon" src="assets/images/icons/bell.svg" alt="" aria-hidden="true">
+                        </button>
+                        <button class="btn-outline"><img class="ui-icon" src="assets/images/icons/ticket.svg" alt="" aria-hidden="true">Ingressos</button>
+                        <button class="btn-outline"><img class="ui-icon" src="assets/images/icons/tv.svg" alt="" aria-hidden="true">Onde Assistir</button>
+                        <button class="btn-outline"><img class="ui-icon" src="assets/images/icons/edit.svg" alt="" aria-hidden="true">Editar Evento</button>
+                    </div>
+                </div>
+            `;
+
+            // Adicionar novo evento no início da lista
+            const eventsContainer = document.querySelector('#events-tab');
+            const firstEvent = eventsContainer.querySelector('.event-item');
+            if (firstEvent) {
+                firstEvent.insertAdjacentHTML('beforebegin', newEventHTML);
+            } else {
+                eventsContainer.insertAdjacentHTML('beforeend', newEventHTML);
+            }
+
+            // Limpar formulário e fechar modal
+            event.target.reset();
+            closeModal('addEventModal');
+            showNotification('Evento adicionado com sucesso!');
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            const links = document.querySelectorAll('.nav-tabs a');
+            links.forEach(a => { 
+                a.classList.remove('active'); 
+                if (a.getAttribute('href').endsWith('events.html')) a.classList.add('active'); 
+            });
+        });
+    </script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+/* Estilos para página de lutadores */
+.fighter-search {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.fighter-search input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.fighter-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fighter-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.fighter-card .fighter-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.fighter-avatar.large {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #d32f2f, #f57c00);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fighter-details {
+    flex: 1;
+}
+
+.fighter-details h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.fighter-details p {
+    margin: 0;
+    color: #666;
+}
+
+.fighter-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.stat-box .stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.stat-box .stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+/* Estilos para página de eventos */
+.event-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.event-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.event-title h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+}
+
+.event-meta {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.event-status {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status-confirmed {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-pending {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.event-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-item .icon {
+    color: #d32f2f;
+}
+
+.undercard {
+    margin-top: 1rem;
+}
+
+.undercard h4 {
+    color: #666;
+    margin-bottom: 0.8rem;
+}
+
+.undercard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.undercard-item {
+    padding: 0.5rem 0;
+    color: #444;
+}
+
+.fighter-expanded {
+    max-height: 1000px;
+    transition: max-height 0.3s ease-in;
+}
+
+.fighter-collapsed {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* Botões de ação */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #d32f2f;
+    color: #d32f2f;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: #d32f2f;
+    color: white;
+}
+
+/* Estilo para botão de notificação */
+.notify-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.notify-btn:hover {
+    background: #f5f5f5;
+    color: #d32f2f;
+}
+
+.notify-btn.active {
+    color: #d32f2f;
+}
+
+/* Modal de Evento */
+.event-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .event-form-grid {
+        grid-template-columns: 1fr;
+    }
+}

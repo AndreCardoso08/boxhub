@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOXHUB - Lutadores</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><img class="ui-icon" src="assets/images/icons/boxing-glove.svg" alt="" aria-hidden="true">BOXHUB</div>
+                <div class="user-actions">
+                    <a href="#" class="btn btn-secondary" onclick="openModal('loginModal')">Entrar</a>
+                    <a href="#" class="btn btn-primary" onclick="openModal('registerModal')">Registrar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-tabs">
+                <li><a href="index.html"><img class="ui-icon" src="assets/images/icons/home.svg" alt="" aria-hidden="true">Feed</a></li>
+                <li><a href="discussions.html"><img class="ui-icon" src="assets/images/icons/chat.svg" alt="" aria-hidden="true">Discussões</a></li>
+                <li><a href="rankings.html"><img class="ui-icon" src="assets/images/icons/trophy.svg" alt="" aria-hidden="true">Rankings</a></li>
+                <li><a href="fighters.html" class="active"><img class="ui-icon" src="assets/images/icons/fist.svg" alt="" aria-hidden="true">Lutadores</a></li>
+                <li><a href="events.html"><img class="ui-icon" src="assets/images/icons/calendar.svg" alt="" aria-hidden="true">Eventos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <main class="feed-section">
+                <div id="fighters-tab" class="tab-content" style="display: block;">
+                    <h2><img class="ui-icon" src="assets/images/icons/fist.svg" alt="" aria-hidden="true">Lutadores</h2>
+                    <p style="margin-bottom: 1rem; color: #666;">Lista de lutadores e perfis rápidos.</p>
+
+                    <div class="fighter-card">
+                        <div class="fighter-avatar large">CA</div>
+                        <div class="fighter-details">
+                            <h3>Canelo Álvarez</h3>
+                            <p>Super Médio • 59-2-2 • México</p>
+                        </div>
+                    </div>
+
+                    <div class="fighter-card">
+                        <div class="fighter-avatar large">TF</div>
+                        <div class="fighter-details">
+                            <h3>Tyson Fury</h3>
+                            <p>Peso Pesado • 33-0-1 • Reino Unido</p>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <!-- Sidebar copied from index.html -->
+                <div class="widget">
+                    <h3><img class="ui-icon" src="assets/images/icons/users.svg" alt="" aria-hidden="true">Usuários Online (245)</h3>
+                    <div class="online-user">
+                        <div class="status-indicator"></div>
+                        <div><strong>BoxingFan2023</strong></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div id="createPostModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/edit.svg" alt="" aria-hidden="true">Criar Novo Post</h3>
+                <button class="close" onclick="closeModal('createPostModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="createPost(event)">
+                    <div class="form-group">
+                        <label>Categoria:</label>
+                        <select class="form-control" id="postCategory">
+                            <option value="geral">Discussão Geral</option>
+                            <option value="rankings">Rankings</option>
+                            <option value="analise">Análise de Luta</option>
+                            <option value="noticias">Notícias</option>
+                            <option value="tecnica">Técnica</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Título:</label>
+                        <input type="text" class="form-control" id="postTitle" placeholder="Digite um título chamativo para seu post..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Conteúdo:</label>
+                        <textarea class="form-control" id="postContent" placeholder="Compartilhe sua opinião, análise ou pergunta sobre boxe. Seja respeitoso e construtivo!" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/send.svg" alt="" aria-hidden="true">Publicar Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/key.svg" alt="" aria-hidden="true">Entrar no BOXHUB</h3>
+                <button class="close" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="login(event)">
+                    <div class="form-group">
+                        <label>Email ou Usuário:</label>
+                        <input type="text" class="form-control" placeholder="seu@email.com ou usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;"><img class="ui-icon" src="assets/images/icons/door.svg" alt="" aria-hidden="true">Entrar</button>
+                    <div style="text-align: center;">
+                        <a href="#" style="color: #d32f2f;">Esqueceu a senha?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/target.svg" alt="" aria-hidden="true">Junte-se ao BOXHUB</h3>
+                <button class="close" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="register(event)">
+                    <div class="form-group">
+                        <label>Nome de Usuário:</label>
+                        <input type="text" class="form-control" placeholder="escolha um nome único" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" placeholder="mínimo 6 caracteres" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/target.svg" alt="" aria-hidden="true">Criar Conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="addFighterModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><img class="ui-icon" src="assets/images/icons/boxing-glove.svg" alt="" aria-hidden="true">Adicionar Novo Lutador</h3>
+                <button class="close" onclick="closeModal('addFighterModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="addFighter(event)">
+                    <div class="form-group">
+                        <label>Nome do Lutador:</label>
+                        <input type="text" class="form-control" id="fighterName" placeholder="Ex: Mike Tyson" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria de Peso:</label>
+                        <select class="form-control" id="fighterCategory" required>
+                            <option value="">Selecione a categoria</option>
+                            <option value="Peso Mosca">Peso Mosca</option>
+                            <option value="Peso Galo">Peso Galo</option>
+                            <option value="Peso Pena">Peso Pena</option>
+                            <option value="Peso Leve">Peso Leve</option>
+                            <option value="Peso Meio-Médio">Peso Meio-Médio</option>
+                            <option value="Peso Médio">Peso Médio</option>
+                            <option value="Peso Super Médio">Peso Super Médio</option>
+                            <option value="Peso Meio-Pesado">Peso Meio-Pesado</option>
+                            <option value="Peso Pesado">Peso Pesado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Record (Vitórias-Derrotas-Empates):</label>
+                        <input type="text" class="form-control" id="fighterRecord" placeholder="Ex: 50-6-2" required>
+                    </div>
+                    <div class="form-group">
+                        <label>País:</label>
+                        <input type="text" class="form-control" id="fighterCountry" placeholder="Ex: Brasil" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><img class="ui-icon" src="assets/images/icons/plus.svg" alt="" aria-hidden="true">Adicionar ao Ranking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const links = document.querySelectorAll('.nav-tabs a');
+            links.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href').endsWith('fighters.html')) a.classList.add('active'); });
+        });
+    </script>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
